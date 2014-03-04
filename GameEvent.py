@@ -1,7 +1,12 @@
-import os
-from flask import Flask
 from webhooks import app
 
-@app.route('/GameEvent')
+from flask import request, json
+
+@app.route('/GameEvent', methods=['POST'])
 def GameEvent():
-    return 'GameEvent!'
+	jsonRequest = request.get_json(force = True)
+	app.logger.info("hook: GameEvent: %s", jsonRequest)
+	
+	return json.jsonify(Message = "",
+					ResultCode = 0)
+

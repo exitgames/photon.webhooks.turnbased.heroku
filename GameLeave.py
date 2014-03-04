@@ -1,7 +1,12 @@
-import os
-from flask import Flask
 from webhooks import app
 
-@app.route('/GameLeave')
+from flask import request, json
+
+@app.route('/GameLeave', methods=['POST'])
 def GameLeave():
-    return 'GameLeave!'
+	jsonRequest = request.get_json(force = True)
+	app.logger.info("hook: GameLeave: %s", jsonRequest)
+	
+	return json.jsonify(Message = "",
+					ResultCode = 0)
+

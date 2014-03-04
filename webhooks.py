@@ -1,8 +1,8 @@
 import os
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
-
+app.debug = True 
 @app.route('/')
 def hello():
     return 'Hello World!'
