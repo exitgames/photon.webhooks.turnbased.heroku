@@ -3,7 +3,7 @@ import psycopg2
 import urlparse
 from flask import _app_ctx_stack
 
-from webhooks import app
+from app import app
 
 def get_app_conn():
 	top = _app_ctx_stack.top

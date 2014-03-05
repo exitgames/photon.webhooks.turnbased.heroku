@@ -1,13 +1,13 @@
-from webhooks import app
+from app import app
 
 from flask import request, json
 
 import db
 
-@app.route('/GameCreate', methods=['POST'])
-def GameCreate():
+@app.route('/GameLeave', methods=['POST'])
+def GameLeave():
 	jsonRequest = request.get_json(force = True)
-	app.logger.info("hook: GameCreate: %s", jsonRequest)
+	app.logger.info("hook: GameLeave: %s", jsonRequest)
 
 	if 'GameId' not in jsonRequest:
 		return json.jsonify(Message = "Missing GameId.",
@@ -18,13 +18,13 @@ def GameCreate():
 					
 	game_id = jsonRequest['GameId']
 	user_id = jsonRequest['UserId']
+					
+	if 'IsInactive' in jsonRequest and jsonRequest['IsInactive']:
+		if 'ActorNr' in jsonRequest and jsonRequest['ActorNr'] > 0:
+			db.set_user_game(user_id, game_id, jsonRequest['ActorNr'])
+	else:
+		db.delete_user_game(user_id, game_id)
 
-	if db.game_state_exists(game_id):
-		return json.jsonify(Message = "Game already exists.",
-					ResultCode = 3)
-	
-	db.set_game_state(jsonRequest['GameId'], "")
-	
 	return json.jsonify(Message = "",
 					ResultCode = 0)
 	

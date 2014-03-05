@@ -1,4 +1,4 @@
-from webhooks import app
+from app import app
 
 from flask import request, json
 
