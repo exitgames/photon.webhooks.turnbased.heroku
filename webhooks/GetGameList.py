@@ -18,8 +18,15 @@ def GetGameList():
 	list = {}
 	for game_id, actor_nr in game_list:
 		app.logger.info("%s -> %d", game_id, actor_nr)
-		if db.game_state_exists(game_id):
-			list[game_id] = actor_nr
+		if db.game_state_exists(game_id):	
+			state = db.get_game_state(game_id)			
+			list[game_id] = {
+				'ActorNr': actor_nr, 
+			}
+			if state != "":
+				stateObj = json.loads(state)
+				list[game_id]['Properties'] = stateObj['CustomProperties']
+
 		else:
 			db.delete_user_game(user_id, game_id)			
 

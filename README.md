@@ -27,7 +27,7 @@ This is the **Photon Turnbased Webhooks** sample using [Heroku](https://www.hero
 
 ### Running application locally
 - $ `./ngrok 5000` (default Flask port is 5000)
-- go to the [Photon Dashboard](https://dev-cloud.exitgames.com/en/Turnbased/Dashboard), create an application and set in the Webhooks tab the BaseUrl value to url from ngrok.
+- go to the [Photon Dashboard](https://www.exitgames.com/en/Turnbased/Dashboard), create an application and set in the Webhooks tab the BaseUrl value to url from ngrok.
 - $ `export DATABASE_URL=[local PostgreSQL database url]`
 - $ `python db_init.py` (script destroys current database if it exists and creates new one)
 - $ `foreman start`
@@ -39,7 +39,7 @@ This is the **Photon Turnbased Webhooks** sample using [Heroku](https://www.hero
 - $ `git commit -m "init"`
 - $ `heroku create [new Heroku application name]`
 - $ `git push heroku master`
-- go to the [Photon Dashboard](https://dev-cloud.exitgames.com/en/Turnbased/Dashboard), create an application or choose already existing and set in the Webhooks tab the BaseUrl value to url of your Heroku web application (http://[Heroku application name].herokuapp.com).
+- go to the [Photon Dashboard](https://www.exitgames.com/en/Turnbased/Dashboard), create an application or choose already existing and set in the Webhooks tab the BaseUrl value to url of your Heroku web application (http://[Heroku application name].herokuapp.com).
 - $ `heroku addons:add heroku-postgresql:dev`
 - $ `heroku pg:promote HEROKU_POSTGRESQL_COLOR_URL` (replace with your database color url)
 - $ `heroku run python db_init.py` (script destroys current database if it exists and creates new one)

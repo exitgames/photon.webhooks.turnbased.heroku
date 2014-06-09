@@ -22,8 +22,8 @@ def GameClose():
 		return json.jsonify(Message = "",
 						ResultCode = 0)
 
-	if 'State2' in jsonRequest:
-		for v in jsonRequest['State2']['ActorList']:
+	if 'State' in jsonRequest:
+		for v in jsonRequest['State']['ActorList']:
 			user_id = v['UserId']
 			actor_nr = v['ActorNr']
 			app.logger.info("hook: GameClose: saving user game: userid: %s, gameid: %s, actornr: %d", user_id, game_id, actor_nr)
