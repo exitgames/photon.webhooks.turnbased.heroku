@@ -12,6 +12,5 @@ from webhooks import GameCreate
 from webhooks import GameEvent
 from webhooks import GameJoin
 from webhooks import GameLeave
-from webhooks import GameLoad
 from webhooks import GameProperties
 from webhooks import GetGameList
