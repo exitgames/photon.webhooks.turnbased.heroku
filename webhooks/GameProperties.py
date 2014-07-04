@@ -2,6 +2,8 @@ from app import app
 
 from flask import request, json
 
+import db
+
 @app.route('/GameProperties', methods=['POST'])
 def GameProperties():
 	jsonRequest = request.get_json(force = True)
