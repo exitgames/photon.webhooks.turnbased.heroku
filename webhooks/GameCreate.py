@@ -9,7 +9,7 @@ def GameCreate():
 	jsonRequest = request.get_json(force = True)
 	app.logger.info("hook: GameCreate: %s", jsonRequest)
 	if 'Type' not in jsonRequest:
-		return json.jsonify(Message = "Missing Load.",
+		return json.jsonify(Message = "Missing Type.",
 					ResultCode = 4)
 	if 'GameId' not in jsonRequest:
 		return json.jsonify(Message = "Missing GameId.",
@@ -22,7 +22,6 @@ def GameCreate():
 	user_id = jsonRequest['UserId']
 
 	if jsonRequest['Type'] == "Load":
-		state = db.get_game_state(game_id)
 		state = db.get_game_state(game_id)
 
 		if state == None:	
@@ -47,7 +46,7 @@ def GameCreate():
 	else:
 		if db.game_state_exists(game_id):
 			return json.jsonify(Message = "Game already exists.",
-						ResultCode = 3)
+						ResultCode = 5)
 		
 		db.set_game_state(jsonRequest['GameId'], "")
 		
