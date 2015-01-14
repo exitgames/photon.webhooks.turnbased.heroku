@@ -26,7 +26,7 @@ def GameCreate():
 
 		if state == None:	
 			if 'CreateIfNotExists' in jsonRequest and jsonRequest['CreateIfNotExists']:
-				log("GameId not Found, but this is a join with CreateIfNotExists => returning OK.")
+				app.logger.info("GameId not Found, but this is a join with CreateIfNotExists => returning OK.")
 				return json.jsonify(Message = "",
 								ResultCode = 0)
 			else:
