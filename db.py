@@ -1,6 +1,5 @@
 import os
 import psycopg2
-from urllib.parse import urlparse
 from flask import _app_ctx_stack
 
 from app import app
@@ -13,7 +12,8 @@ def get_app_conn():
 	return top.pg_conn
 
 def get_new_conn():
-	url = urlparse.urlparse(os.environ["DATABASE_URL"])
+	urllib.parse.uses_netloc.append("postgres")
+	url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
 	return psycopg2.connect(
 		database=url.path[1:],
 		user=url.username,
