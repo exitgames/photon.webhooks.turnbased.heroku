@@ -13,7 +13,6 @@ def get_app_conn():
 	return top.pg_conn
 
 def get_new_conn():
-	urlparse.uses_netloc.append("postgres")
 	url = urlparse.urlparse(os.environ["DATABASE_URL"])
 	return psycopg2.connect(
 		database=url.path[1:],
