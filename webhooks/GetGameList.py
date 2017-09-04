@@ -31,4 +31,4 @@ def GetGameList():
 			db.delete_user_game(user_id, game_id)			
 
 
-	return json.jsonify(ResultCode = 0, Mesage = "", Data = list)
+	return json.jsonify(ResultCode = 0, Message = "", Data = list)
