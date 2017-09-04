@@ -16,7 +16,7 @@ def GameProperties():
 	game_id = jsonRequest['GameId']
 	if 'State' in jsonRequest:
 		state = jsonRequest['State']
- 		app.logger.info("hook: GameClose: saving game: %s, state: %s", game_id, state)
+ 		app.logger.info("hook: GameProperties: saving game: %s, state: %s", game_id, state)
 		db.set_game_state(game_id, json.dumps(state))		
 
 	 
