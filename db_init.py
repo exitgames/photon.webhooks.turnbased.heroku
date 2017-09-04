@@ -3,7 +3,7 @@ import db
 conn = db.get_new_conn()
 cur = conn.cursor()
 
-print "Creating tables..."
+print("Creating tables...")
 cur.execute(" \
 	DROP TABLE IF EXISTS games; \
 	DROP TABLE IF EXISTS user_games; \
@@ -24,4 +24,4 @@ conn.commit()
 cur.close()
 conn.close()
 
-print "... done"
+print("... done")
