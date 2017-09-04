@@ -29,11 +29,11 @@ def GameCreate():
 	if jsonRequest['Type'] == "Load":
 		state = db.get_game_state(game_id)
 
-		if state == None:	
+		if state == None:
 			if 'CreateIfNotExists' in jsonRequest and jsonRequest['CreateIfNotExists']:
 				app.logger.info("GameId not Found, but this is a join with CreateIfNotExists => returning OK.")
                 
-                db.set_game_state(jsonRequest['GameId'], json.dumps({'CustomProperties': jsonRequest.CreateOptions.CustomProperties}))
+                db.set_game_state(jsonRequest['GameId'], json.dumps({'CustomProperties': jsonRequest['CreateOptions']['CustomProperties']}))
 		
 		        app.logger.info("hook: GameCreate: saving user game: userid: %s, gameid: %s, actornr: %d", user_id, game_id, actor_nr)
 	            db.set_user_game(user_id, game_id, actor_nr)
@@ -58,8 +58,8 @@ def GameCreate():
 		if db.game_state_exists(game_id):
 			return json.jsonify(Message = "Game already exists.",
 						ResultCode = 5)
-                        
-		db.set_game_state(jsonRequest['GameId'], json.dumps({'CustomProperties': jsonRequest.CreateOptions.CustomProperties}))
+
+		db.set_game_state(jsonRequest['GameId'], json.dumps({'CustomProperties': jsonRequest['CreateOptions']['CustomProperties']}))
 		
 		app.logger.info("hook: GameCreate: saving user game: userid: %s, gameid: %s, actornr: %d", user_id, game_id, actor_nr)
 	    db.set_user_game(user_id, game_id, actor_nr)
