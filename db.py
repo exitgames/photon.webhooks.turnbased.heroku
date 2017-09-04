@@ -1,6 +1,6 @@
 import os
 import psycopg2
-import urlparse
+from urllib.parse import urlparse
 from flask import _app_ctx_stack
 
 from app import app
