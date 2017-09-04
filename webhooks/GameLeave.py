@@ -15,7 +15,7 @@ def GameLeave():
 	if 'UserId' not in jsonRequest:
 		return json.jsonify(Message = "Missing UserId.",
 					ResultCode = 2)
-    if 'ActorNr' not in jsonRequest:
+	if 'ActorNr' not in jsonRequest:
 		return json.jsonify(Message = "Missing ActorNr.",
 					ResultCode = 6)
 					
