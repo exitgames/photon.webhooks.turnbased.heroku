@@ -18,7 +18,7 @@ def GameLeave():
 	if 'ActorNr' not in jsonRequest:
 		return json.jsonify(Message = "Missing ActorNr.",
 					ResultCode = 6)
-					
+
 	game_id = jsonRequest['GameId']
 	user_id = jsonRequest['UserId']
 	actor_nr = jsonRequest['ActorNr']
@@ -31,4 +31,3 @@ def GameLeave():
 
 	return json.jsonify(Message = "",
 					ResultCode = 0)
-	
