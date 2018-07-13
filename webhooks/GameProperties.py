@@ -19,7 +19,6 @@ def GameProperties():
 		app.logger.info("hook: GameProperties: saving game: %s, state: %s", game_id, state)
 		db.set_game_state(game_id, json.dumps(state))		
 
-	 
 	return json.jsonify(Message = "",
 					ResultCode = 0)
 

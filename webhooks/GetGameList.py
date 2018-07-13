@@ -11,7 +11,7 @@ def GetGameList():
 
 	if 'UserId' not in jsonRequest:
 		return json.jsonify(Message = "Missing UserId.",
-					ResultCode = 1)
+					ResultCode = 2)
 
 	user_id = jsonRequest['UserId']
 	game_list = db.get_user_game_list(user_id)
