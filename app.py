@@ -9,7 +9,7 @@ db.set_game_state(1, 2);
 
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    return 'Hello World11!'
 
 from webhooks import GameClose
 from webhooks import GameCreate
